@@ -75,11 +75,11 @@ def download_credentials():
 new_model, tokenizer = load_model_tokenizer()
 
 
-@views.route('/home', methods=['GET', 'POST'])
+@views.route('/mydiary', methods=['GET'])
 @login_required
-def home():
-    if request.method == 'GET': 
-        diaries = Diary.query.all()
+def mydiary():
+        user_id = current_user.id
+        diaries = Diary.query.filter_by(user_id=user_id).all()
         diary_list = []
         for diary in diaries:
             diary_data = {
@@ -96,7 +96,9 @@ def home():
             diary_list.append(diary_data)
         return jsonify({'status': 'success', 'data': diary_list}), 200
 
-    elif request.method == 'POST': 
+@views.route('/adddiary', methods=['POST'])
+@login_required
+def adddiary():
         diary = request.form.get('diary')
 
         if len(diary) < 1:
