@@ -11,7 +11,7 @@ class Diary(db.Model):
     Depresi = db.Column(db.Float)
     Lonely = db.Column(db.Float)
     Normal = db.Column(db.Float)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     rekomendasi = db.Column(db.String(10000))
 
 
