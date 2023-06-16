@@ -1,5 +1,5 @@
 from . import db
-from flask_login import UserMixin
+#from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 
@@ -11,13 +11,13 @@ class Diary(db.Model):
     Depresi = db.Column(db.Float)
     Lonely = db.Column(db.Float)
     Normal = db.Column(db.Float)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     rekomendasi = db.Column(db.String(10000))
 
 
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-    first_name = db.Column(db.String(150))
-    diary = db.relationship('Diary')
+#class User(db.Model, UserMixin):
+ #   id = db.Column(db.Integer, primary_key=True)
+  #  email = db.Column(db.String(150), unique=True)
+   # password = db.Column(db.String(150))
+    #first_name = db.Column(db.String(150))
+   # diary = db.relationship('Diary')
