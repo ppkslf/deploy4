@@ -76,10 +76,10 @@ new_model, tokenizer = load_model_tokenizer()
 
 
 @views.route('/mydiary', methods=['GET'])
-@login_required
+#@login_required
 def mydiary():
        # user_id = current_user.id
-      #  diaries = Diary.query.filter_by(user_id=user_id).all()
+        diaries = Diary.query.filter_by(id=id).all()
         diary_list = []
         for diary in diaries:
             diary_data = {
@@ -97,7 +97,7 @@ def mydiary():
         return jsonify({'status': 'success', 'data': diary_list}), 200
 
 @views.route('/adddiary', methods=['POST'])
-@login_required
+#@login_required
 def adddiary():
         diary = request.form.get('diary')
 
