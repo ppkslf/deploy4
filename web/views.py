@@ -97,7 +97,7 @@ def mydiary():
         return jsonify({'status': 'success', 'data': diary_list}), 200
 
 @views.route('/adddiary', methods=['POST'])
-@login_required
+#@login_required
 def adddiary():
         diary = request.form.get('diary')
 
